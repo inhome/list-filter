@@ -5,4 +5,8 @@ function filterItems(items, query) {
   return items.filter(function (item) { return item.title.toLowerCase().indexOf(needle) !== -1; });
 }
 
-module.exports = { filterItems: filterItems };
+function toggleId(ids, id) {
+  return ids.indexOf(id) === -1 ? ids.concat([id]) : ids.filter(function (value) { return value !== id; });
+}
+
+module.exports = { filterItems: filterItems, toggleId: toggleId };
