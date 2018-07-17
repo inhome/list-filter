@@ -9,4 +9,9 @@ function toggleId(ids, id) {
   return ids.indexOf(id) === -1 ? ids.concat([id]) : ids.filter(function (value) { return value !== id; });
 }
 
-module.exports = { filterItems: filterItems, toggleId: toggleId };
+function pageItems(items, page, size) {
+  if (!Number.isInteger(page) || page < 1 || !Number.isInteger(size) || size < 1) throw new RangeError("Invalid pagination");
+  return items.slice((page - 1) * size, page * size);
+}
+
+module.exports = { filterItems: filterItems, toggleId: toggleId, pageItems: pageItems };

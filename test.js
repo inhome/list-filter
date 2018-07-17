@@ -11,3 +11,7 @@ assert.deepStrictEqual(lib.toggleId(selection, 2), [1, 2]);
 assert.deepStrictEqual(lib.toggleId(selection, 1), []);
 assert.deepStrictEqual(selection, [1]);
 
+assert.deepStrictEqual(lib.pageItems([1, 2, 3], 2, 2), [3]);
+assert.deepStrictEqual(lib.pageItems([], 1, 2), []);
+assert.throws(function () { lib.pageItems([], 0, 2); }, RangeError);
+
