@@ -11,3 +11,7 @@ Case-insensitive substring search for records with string titles. Preserve sourc
 ## toggleId
 
 Return a new selection array. Existing arrays remain unchanged.
+
+## pageItems
+
+Use one-based page numbers. A page beyond the end is empty.

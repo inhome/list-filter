@@ -14,4 +14,8 @@ function pageItems(items, page, size) {
   return items.slice((page - 1) * size, page * size);
 }
 
-module.exports = { filterItems: filterItems, toggleId: toggleId, pageItems: pageItems };
+function replaceItem(items, replacement) {
+  return items.map(function (item) { return item.id === replacement.id ? replacement : item; });
+}
+
+module.exports = { filterItems: filterItems, toggleId: toggleId, pageItems: pageItems, replaceItem: replaceItem };
