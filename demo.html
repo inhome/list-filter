@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Local list filter</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 42rem; margin: 3rem auto; padding: 0 1rem; color: #222; background: #fff; }
+label { display: block; font-weight: 600; } input { font: inherit; padding: .5rem; width: 100%; box-sizing: border-box; }
+li { padding: .5rem 0; border-bottom: 1px solid #ddd; } [hidden] { display: none; }
+</style>
+<main><h1>Local list filter</h1><label for="query">Filter examples</label><input id="query" type="search">
+<p id="count" role="status" aria-live="polite"></p><ul id="items"><li>Node HTTP server</li><li>CSS layout</li><li>SQL transactions</li><li>JavaScript arrays</li></ul></main>
+<script>
+var input = document.getElementById('query');
+var items = Array.prototype.slice.call(document.querySelectorAll('#items li'));
+function update() {
+  var query = input.value.trim().toLowerCase();
+  var count = 0;
+  items.forEach(function (item) { item.hidden = item.textContent.toLowerCase().indexOf(query) === -1; if (!item.hidden) count++; });
+  document.getElementById('count').textContent = count + ' matching examples';
+}
+input.addEventListener('input', update); update();
+</script></html>

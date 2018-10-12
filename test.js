@@ -15,3 +15,7 @@ assert.deepStrictEqual(lib.pageItems([1, 2, 3], 2, 2), [3]);
 assert.deepStrictEqual(lib.pageItems([], 1, 2), []);
 assert.throws(function () { lib.pageItems([], 0, 2); }, RangeError);
 
+var before = [{ id: 1, title: "old" }];
+assert.strictEqual(lib.replaceItem(before, { id: 1, title: "new" })[0].title, "new");
+assert.strictEqual(before[0].title, "old");
+

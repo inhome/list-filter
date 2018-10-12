@@ -15,3 +15,7 @@ Return a new selection array. Existing arrays remain unchanged.
 ## pageItems
 
 Use one-based page numbers. A page beyond the end is empty.
+
+## replaceItem
+
+Replace matching ids without inserting a missing record. Untouched records keep their identity.
